@@ -3,6 +3,7 @@ package com.bangkit.capstone.insightapp.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
@@ -71,15 +72,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun fireBaseAuthWithGoogle(idToken: String) {
+        binding.loadingbarLogin.visibility = View.VISIBLE
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("Sign in Activity", "SignInWithCredential:success")
 //                    val user = mAuth.currentUser
+                    binding.loadingbarLogin.visibility = View.GONE
                     val intent = Intent(this, MenuActivity::class.java)
                     startActivity(intent)
                 } else {
+                    binding.loadingbarLogin.visibility = View.GONE
                     Log.w("sign in activity", "SignInWithCredential:failure")
                 }
             }
