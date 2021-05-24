@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">inSightApp</string>
+
+
+    <!--Image Description-->
+    <string name="content_splash">content for splash activity</string>
 </resources>
