@@ -1,6 +1,8 @@
 package com.bangkit.capstone.insightapp.view.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,12 +10,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.capstone.insightapp.R
+import com.google.firebase.auth.FirebaseAuth
 
 class MenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
