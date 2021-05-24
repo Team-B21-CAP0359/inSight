@@ -10,12 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InSightApp">
         <activity
+            android:name=".view.activity.DetailUserActivity"
+            android:label="@string/title_activity_detail_user"
+            android:theme="@style/Theme.InSightApp.NoActionBar"></activity>
+        <activity
             android:name=".view.activity.MenuActivity"
-            android:label="@string/title_activity_menu">
-
-        </activity>
+            android:label="@string/title_activity_menu"></activity>
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.UserDetailActivity" />
+        <activity
+            android:name=".view.activity.UserDetailActivity"
+            android:theme="@style/NoActionBar" />
         <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

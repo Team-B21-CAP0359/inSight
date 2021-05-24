@@ -22,7 +22,6 @@
             app:lottie_fileName="login_register.json" />
 
         <ImageView
-            android:layout_marginTop="10dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/img_google"/>

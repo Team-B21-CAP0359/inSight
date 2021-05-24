@@ -13,4 +13,24 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="NoActionBar">
+        style name="Theme.TourismApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+f
+    <style name="Theme.InSightApp..AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.InSightApp..PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.InSightApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.InSightApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.InSightApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
