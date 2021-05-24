@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
             .into(binding.SplashView)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val myIntent = Intent(this, MainActivity::class.java)
+            val myIntent = Intent(this, MenuActivity::class.java)
             startActivity(myIntent)
             overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
             finish()
