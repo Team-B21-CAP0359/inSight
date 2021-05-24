@@ -52,10 +52,10 @@ class DetailUserActivity : AppCompatActivity() {
 
 
         bindingDetail.buttonLogout.setOnClickListener {
-            mAuth.signOut()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-            finish()
+            this.finish()
+            mAuth.signOut()
         }
 
 

@@ -12,7 +12,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import java.net.MalformedURLException
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,6 +39,10 @@ class LoginActivity : AppCompatActivity() {
             signIn()
         }
 
+        binding.tamuLogin.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun signIn() {
@@ -80,6 +83,10 @@ class LoginActivity : AppCompatActivity() {
                     Log.w("sign in activity", "SignInWithCredential:failure")
                 }
             }
+    }
+
+    override fun onBackPressed() {
+        moveTaskToBack(true)
     }
 
     companion object {

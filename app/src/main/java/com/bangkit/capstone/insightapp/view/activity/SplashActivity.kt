@@ -36,12 +36,13 @@ class SplashActivity : AppCompatActivity() {
             if (null != user) {
                 val menuIntent = Intent(this, MenuActivity::class.java)
                 startActivity(menuIntent)
+                finish()
             } else {
                 val loginIntent = Intent(this, LoginActivity::class.java)
                 startActivity(loginIntent)
+                finish()
             }
             overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-            finish()
         }, 3000)
 
     }

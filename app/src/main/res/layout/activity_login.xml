@@ -53,7 +53,7 @@
             android:text="Punya Kendala Masuk ? Beritahu kami." />
 
         <TextView
-            android:id="@+id/textRegister"
+            android:id="@+id/tamuLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
