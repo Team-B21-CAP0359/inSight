@@ -21,6 +21,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="BottomNavigation">
+        <item name="android:background">@drawable/navigation_bg_night</item>
+    </style>
+
     <style name="Theme.InSightApp..AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.InSightApp..PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
