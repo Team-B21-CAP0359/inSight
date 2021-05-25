@@ -31,12 +31,14 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/password"
-            android:layout_margin="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/button_design"
             android:text="Login With Google"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:drawableEnd="@drawable/ic_baseline_login_24"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="16sp"
+            style="@style/TextAppearance.AppCompat"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loadingbar_login"

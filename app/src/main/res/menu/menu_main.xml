@@ -9,7 +9,7 @@
         android:title="Profil"
         app:showAsAction="collapseActionView|always" />
     <item
-        android:id="@+id/setting"
+        android:id="@+id/setting_menu"
         android:title="Setting" />
     <item
         android:id="@+id/about_app"

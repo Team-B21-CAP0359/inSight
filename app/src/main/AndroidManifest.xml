@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InSightApp">
+        <activity android:name=".view.activity.SettingActivity"></activity>
         <activity
             android:name=".view.activity.DetailUserActivity"
             android:label="@string/title_activity_detail_user"
-            android:theme="@style/Theme.InSightApp.NoActionBar"></activity>
+            android:theme="@style/Theme.InSightApp.NoActionBar" />
         <activity
             android:name=".view.activity.MenuActivity"
-            android:label="@string/title_activity_menu"></activity>
+            android:label="@string/title_activity_menu" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity
             android:name=".view.activity.UserDetailActivity"

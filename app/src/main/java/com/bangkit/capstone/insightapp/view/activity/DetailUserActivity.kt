@@ -42,7 +42,8 @@ class DetailUserActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         val currentUser = mAuth.currentUser
 
-        bindingDetail.etIdUser.text = currentUser?.phoneNumber
+
+        bindingDetail.etIdUser.text = currentUser?.phoneNumber ?: "Tidak Terdaftar"
         bindingDetail.etNameUser.text = currentUser?.displayName
         bindingDetail.etEmailUser.text = currentUser?.email
 

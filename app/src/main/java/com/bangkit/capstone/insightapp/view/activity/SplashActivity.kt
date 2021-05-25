@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatDelegate
 import com.bangkit.capstone.insightapp.MainActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivitySplashBinding
+import com.bangkit.capstone.insightapp.sharedpref.NightModeSharedPref
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
     private var _binding: ActivitySplashBinding? = null
     private val binding get() = _binding!!
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var sharedPref: NightModeSharedPref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,8 @@ class SplashActivity : AppCompatActivity() {
             .load(R.drawable.splash_logo)
             .into(binding.SplashView)
 
+        isNightMode()
+
         Handler(Looper.getMainLooper()).postDelayed({
             if (null != user) {
                 val menuIntent = Intent(this, MenuActivity::class.java)
@@ -45,5 +50,14 @@ class SplashActivity : AppCompatActivity() {
             overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
         }, 3000)
 
+    }
+
+    private fun isNightMode() {
+        sharedPref = NightModeSharedPref(this)
+        if (sharedPref.loadNightModeState()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 }

@@ -73,6 +73,11 @@ class MenuActivity : AppCompatActivity() {
                 }
                 return true
             }
+            R.id.setting_menu -> {
+                val intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
+                return true
+            }
             else -> true
         }
     }
