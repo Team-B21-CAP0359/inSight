@@ -84,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.loadingbarLogin.visibility = View.GONE
                     val intent = Intent(this, MenuActivity::class.java)
                     startActivity(intent)
+                    finish()
                 } else {
                     binding.loadingbarLogin.visibility = View.GONE
                     Log.w("sign in activity", "SignInWithCredential:failure")
