@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
@@ -13,6 +14,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import java.util.*
+import kotlin.collections.HashMap
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,6 +26,8 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignClient: GoogleSignInClient
+    private lateinit var refUser: DatabaseReference
+    private var firebaseuUid: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,11 +87,33 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("Sign in Activity", "SignInWithCredential:success")
-//                    val user = mAuth.currentUser
+
+                    firebaseuUid = mAuth.currentUser?.uid.toString()
+                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseuUid)
+                    val userHashMap = HashMap<String, Any>()
+                    userHashMap["uid"] = firebaseuUid
+                    userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
+                    userHashMap["username"] = mAuth.currentUser?.displayName.toString()
+                    userHashMap["email"] = mAuth.currentUser?.email.toString()
+                    userHashMap["status"] = "offline"
+                    userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
+                    userHashMap["bio"] = "Empty"
+
+                    refUser.updateChildren(userHashMap)
+                        .addOnCompleteListener { tasks ->
+                            if (tasks.isSuccessful) {
+                                Toast.makeText(this, "Succes", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
                     binding.loadingbarLogin.visibility = View.GONE
                     val intent = Intent(this, MenuActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
+
                 } else {
                     binding.loadingbarLogin.visibility = View.GONE
                     Log.w("sign in activity", "SignInWithCredential:failure")
