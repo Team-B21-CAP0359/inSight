@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "877210110770",
+    "firebase_url": "https://insightapp-7097f-default-rtdb.firebaseio.com",
+    "project_id": "insightapp-7097f",
+    "storage_bucket": "insightapp-7097f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877210110770:android:f43a5292e0089ae2ee252b",
+        "android_client_info": {
+          "package_name": "com.bangkit.capstone.insightapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877210110770-4phod33l9eklbpvnja4i2h1moh2fdour.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bangkit.capstone.insightapp",
+            "certificate_hash": "a24cd9e8a4817e72a1e34b20abf379369da0018e"
+          }
+        },
+        {
+          "client_id": "877210110770-ej48hfpnn5l3qpqug77j64vsqr5e9ofi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4Skh6nEORqAszhraLOkactVKaFp6ik6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877210110770-ej48hfpnn5l3qpqug77j64vsqr5e9ofi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

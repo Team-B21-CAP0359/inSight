@@ -64,12 +64,22 @@ class MenuActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
         return when (item.itemId) {
             R.id.profil -> {
-                mAuth = FirebaseAuth.getInstance()
-                val user = mAuth.currentUser
+
                 if (null != user) {
                     val intent = Intent(this, DetailUserActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    userNull()
+                }
+                return true
+            }
+            R.id.chat -> {
+                if (null != user) {
+                    val intent = Intent(this, ChatActivity::class.java)
                     startActivity(intent)
                 } else {
                     userNull()

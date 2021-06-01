@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.bangkit.capstone.insightapp.view.activity.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:name="com.bangkit.capstone.insightapp.view.activity.ui.tshirt.TshirtFragment"
+        android:label="@string/Pakaian"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.bangkit.capstone.insightapp.view.activity.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:name="com.bangkit.capstone.insightapp.view.activity.ui.pants.PantFragment"
+        android:label="@string/Celana"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.bangkit.capstone.insightapp.view.activity.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.bangkit.capstone.insightapp.view.activity.ui.shoe.ShoeFragment"
+        android:label="@string/Sepatu"
+        tools:layout="@layout/fragment_user" />
 </navigation>
