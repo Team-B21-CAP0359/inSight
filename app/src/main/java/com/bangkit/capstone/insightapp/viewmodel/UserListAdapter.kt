@@ -1,5 +1,6 @@
 package com.bangkit.capstone.insightapp.viewmodel
 
+import android.content.Intent
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.model.UserModel
+import com.bangkit.capstone.insightapp.view.detail.UserDetailActivity
 import com.bumptech.glide.Glide
 
 class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
@@ -32,6 +34,23 @@ class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerVie
         Glide.with(holder.itemView.context)
             .load(url)
             .into(holder.userPhoto)
+
+        val dataUser = UserModel(
+            currentItem.bio,
+            currentItem.email,
+            currentItem.profile_photo,
+            currentItem.search,
+            currentItem.status,
+            currentItem.uid,
+            currentItem.username
+        )
+        
+        holder.itemView.setOnClickListener {
+            val moveDetail = Intent(holder.itemView.context, UserDetailActivity::class.java)
+            moveDetail.putExtra(UserDetailActivity.EXTRA_DETAIL, dataUser)
+            holder.itemView.context.startActivity(moveDetail)
+        }
+
     }
 
     override fun getItemCount(): Int = userList.size

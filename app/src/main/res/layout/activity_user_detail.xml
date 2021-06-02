@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap|noScroll"
+            app:layout_scrollFlags="exitUntilCollapsed|snap|noScroll"
             app:toolbarId="@+id/toolbar">
 
             <ImageView
@@ -46,27 +46,31 @@
         tools:context=".view.activity.DetailUserActivity"
         tools:showIn="@layout/activity_detail_user">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
             android:orientation="vertical">
-
-
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_detail_image"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/content_user"
+                tools:src="@tools:sample/avatars" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 tools:ignore="UseCompoundDrawables">
-
                 <ImageView
                     android:src="@drawable/ic_baseline_person_24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/icon_for_username_detail" />
-
                 <TextView
                     android:id="@+id/etNameUser"
                     android:layout_width="wrap_content"
@@ -98,19 +102,23 @@
                     tools:text="aryapratama8501@gmail.com" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_pesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Kirim Email"
+                android:drawableEnd="@drawable/ic_baseline_email_24"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                style="@style/TextAppearance.AppCompat"/>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_detail_image"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/content_user"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        tools:src="@tools:sample/avatars" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
