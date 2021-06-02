@@ -1,47 +1,38 @@
-package com.bangkit.capstone.insightapp.view.activity.ui.tshirt
+package com.bangkit.capstone.insightapp.view.fragment.ui.pants
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityChatBinding
-import com.bangkit.capstone.insightapp.databinding.FragmentHomeBinding
+import com.bangkit.capstone.insightapp.databinding.FragmentDashboardBinding
 import com.bangkit.capstone.insightapp.model.GoodModel
-import com.bangkit.capstone.insightapp.model.UserModel
 import com.bangkit.capstone.insightapp.viewmodel.GoodListAdapter
-import com.bangkit.capstone.insightapp.viewmodel.UserListAdapter
 import com.google.firebase.database.*
 
+class PantFragment : Fragment() {
 
-class TshirtFragment : Fragment() {
-
-    private lateinit var homeViewModel: HomeViewModel
     private lateinit var dbRef : DatabaseReference
     private lateinit var userRecyclerView : RecyclerView
     private lateinit var userArrayList: ArrayList<GoodModel>
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-       _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+    ): View? {
+        _binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userRecyclerView = binding.rvShirt
+        userRecyclerView = binding.rvPants
         userRecyclerView.layoutManager = LinearLayoutManager(view.context)
         userRecyclerView.setHasFixedSize(true)
 
@@ -51,7 +42,7 @@ class TshirtFragment : Fragment() {
 
     private fun getUserData() {
         binding.progressBarProfil.visibility = View.VISIBLE
-        dbRef = FirebaseDatabase.getInstance().getReference("shirt")
+        dbRef = FirebaseDatabase.getInstance().getReference("pants")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -69,10 +60,8 @@ class TshirtFragment : Fragment() {
             }
         })
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

@@ -1,53 +1,49 @@
-package com.bangkit.capstone.insightapp.view.activity.ui.pants
-
+package com.bangkit.capstone.insightapp.view.fragment.ui.shoe
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.FragmentDashboardBinding
 import com.bangkit.capstone.insightapp.databinding.FragmentUserBinding
 import com.bangkit.capstone.insightapp.model.GoodModel
 import com.bangkit.capstone.insightapp.viewmodel.GoodListAdapter
 import com.google.firebase.database.*
 
-class PantFragment : Fragment() {
+class ShoeFragment : Fragment() {
 
     private lateinit var dbRef : DatabaseReference
     private lateinit var userRecyclerView : RecyclerView
     private lateinit var userArrayList: ArrayList<GoodModel>
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentUserBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
+    ): View {
+        _binding = FragmentUserBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userRecyclerView = binding.rvPants
+        userRecyclerView = binding.rvShoe
         userRecyclerView.layoutManager = LinearLayoutManager(view.context)
         userRecyclerView.setHasFixedSize(true)
 
         userArrayList = arrayListOf()
         getUserData()
+
     }
 
     private fun getUserData() {
+
         binding.progressBarProfil.visibility = View.VISIBLE
-        dbRef = FirebaseDatabase.getInstance().getReference("pants")
+        dbRef = FirebaseDatabase.getInstance().getReference("shoe")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -65,8 +61,10 @@ class PantFragment : Fragment() {
             }
         })
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

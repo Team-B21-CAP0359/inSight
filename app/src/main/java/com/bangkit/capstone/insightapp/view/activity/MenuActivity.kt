@@ -51,15 +51,6 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_main, menu)
-
-        mAuth = FirebaseAuth.getInstance()
-        val user = mAuth.currentUser
-
-        if (null != user) {
-            menu.getItem(0).icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_person_loged24)
-        } else {
-            menu.getItem(0).icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_person_24)
-        }
         return true
     }
 
@@ -88,6 +79,11 @@ class MenuActivity : AppCompatActivity() {
             }
             R.id.setting_menu -> {
                 val intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.find_out -> {
+                val intent = Intent(this, FindOutActivity::class.java)
                 startActivity(intent)
                 return true
             }
