@@ -7,12 +7,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
-import androidx.appcompat.app.AppCompatViewInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityChatBinding
-import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
 import com.bangkit.capstone.insightapp.model.UserModel
 import com.bangkit.capstone.insightapp.viewmodel.UserListAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -91,7 +89,7 @@ class ChatActivity : AppCompatActivity() {
 
     private fun searchForUser(str: String) {
 
-        var fireBaseUserID = FirebaseAuth.getInstance().currentUser?.uid
+        FirebaseAuth.getInstance().currentUser?.uid
         val queryUser = FirebaseDatabase.getInstance().reference
             .child("Users").orderByChild("search")
             .startAt(str)

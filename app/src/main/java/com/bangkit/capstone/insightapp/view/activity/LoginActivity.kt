@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
                     refUser.updateChildren(userHashMap)
                         .addOnCompleteListener { tasks ->
                             if (tasks.isSuccessful) {
-                                Toast.makeText(this, "Succes", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
                             }

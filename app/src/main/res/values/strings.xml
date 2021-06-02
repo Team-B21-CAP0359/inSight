@@ -5,8 +5,6 @@
     <string name="Celana">Celana</string>
     <string name="Sepatu">Sepatu</string>
     <string name="title_activity_detail_user">ScrollingActivity</string>
-
-    <!--Image Description-->
     <string name="content_splash">content for splash activity</string>
     <string name="content_user">Content User\'s photo</string>
     <string name="action_settings">Settings</string>
@@ -16,6 +14,21 @@
     <string name="cari">Cari</string>
     <string name="search">Cari</string>
     <string name="deskripsi">Deskripsi</string>
-
-
+    <string name="image_detail">detail image untuk barang</string>
+    <string name="button_share">Button untuk share content</string>
+    <string name="icon_google">icon google</string>
+    <string name="login_with_google">Login With Google</string>
+    <string name="kendala_masuk">Punya Kendala Masuk ? Beritahu kami.</string>
+    <string name="masuk_tamu">Masuk Sebagai Tamu</string>
+    <string name="dark_mode_aktifkan">Aktifkan Mode Gelap</string>
+    <string name="dark_mode_switch">Mode Gelap</string>
+    <string name="foto_sampul">foto sampul</string>
+    <string name="kirim_email">Kirim Email</string>
+    <string name="belum_login">Anda Belum Login !</string>
+    <string name="pertanyaan_inginlogin">Apakah Anda Ingin Login Terlebih Dahulu ?</string>
+    <string name="gender_barang">Di Peruntukan untuk</string>
+    <string name="log_out">Log Out</string>
+    <string name="chat">chat</string>
+    <string name="profil">Profil</string>
+    <string name="setting">Setting</string>
 </resources>

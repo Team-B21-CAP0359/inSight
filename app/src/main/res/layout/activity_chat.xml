@@ -24,13 +24,13 @@
         android:id="@+id/progress_bar_profil"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        app:lottie_fileName="loading_login.json"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading_login.json"
+        app:lottie_loop="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

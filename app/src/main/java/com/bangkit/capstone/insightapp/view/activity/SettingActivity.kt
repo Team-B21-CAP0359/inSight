@@ -1,10 +1,8 @@
 package com.bangkit.capstone.insightapp.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
 import com.bangkit.capstone.insightapp.databinding.ActivitySettingBinding
 import com.bangkit.capstone.insightapp.sharedpref.NightModeSharedPref
 

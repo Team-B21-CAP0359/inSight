@@ -1,7 +1,6 @@
 package com.bangkit.capstone.insightapp.viewmodel
 
 import android.content.Intent
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,19 +12,21 @@ import com.bangkit.capstone.insightapp.model.UserModel
 import com.bangkit.capstone.insightapp.view.detail.UserDetailActivity
 import com.bumptech.glide.Glide
 
-class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter(private val userList: ArrayList<UserModel>) :
+    RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val userName : TextView = itemView.findViewById(R.id.username)
-        val userPhoto : ImageView = itemView.findViewById(R.id.avatar)
-        val email : TextView = itemView.findViewById(R.id.email)
+        val userName: TextView = itemView.findViewById(R.id.username)
+        val userPhoto: ImageView = itemView.findViewById(R.id.avatar)
+        val email: TextView = itemView.findViewById(R.id.email)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.user_item_layout, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.user_item_layout, parent, false)
         return ViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: UserListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = userList[position]
 
         holder.userName.text = currentItem.username
@@ -44,7 +45,7 @@ class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerVie
             currentItem.uid,
             currentItem.username
         )
-        
+
         holder.itemView.setOnClickListener {
             val moveDetail = Intent(holder.itemView.context, UserDetailActivity::class.java)
             moveDetail.putExtra(UserDetailActivity.EXTRA_DETAIL, dataUser)

@@ -6,73 +6,69 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="235dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="login_register.json"
+        app:lottie_loop="true" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view"
-            android:layout_width="match_parent"
-            android:layout_height="235dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="login_register.json"
-            app:lottie_loop="true" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/img_google"/>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/icon_google"
+        android:src="@drawable/img_google" />
 
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login With Google"
-            android:drawableEnd="@drawable/ic_baseline_login_24"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textSize="16sp"
-            style="@style/TextAppearance.AppCompat"/>
+    <Button
+        android:id="@+id/login"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:drawableEnd="@drawable/ic_baseline_login_24"
+        android:text="@string/login_with_google"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loadingbar_login"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="loading_login.json"
-            app:lottie_loop="true" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingbar_login"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading_login.json"
+        app:lottie_loop="true" />
 
-        <ProgressBar
-            android:id="@+id/loadingProgress"
-            style="?attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_centerInParent="true"/>
+    <ProgressBar
+        android:id="@+id/loadingProgress"
+        style="?attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Punya Kendala Masuk ? Beritahu kami." />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/kendala_masuk" />
 
-        <TextView
-            android:id="@+id/tamuLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Masuk Sebagai Tamu" />
+    <TextView
+        android:id="@+id/tamuLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/masuk_tamu" />
 
 
-    </LinearLayout>
 </LinearLayout>

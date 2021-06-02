@@ -2,13 +2,9 @@ package com.bangkit.capstone.insightapp.view.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityDetailUserBinding
 import com.bangkit.capstone.insightapp.databinding.ActivityGoodDetailBinding
 import com.bangkit.capstone.insightapp.databinding.ContentGoodDetailBinding
-import com.bangkit.capstone.insightapp.databinding.ContentScrollingBinding
 import com.bangkit.capstone.insightapp.model.GoodModel
-import com.bangkit.capstone.insightapp.model.UserModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 

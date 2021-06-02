@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/find_out"
         android:icon="@drawable/ic_baseline_manage_search_24"
-        android:title="chat"
+        android:title="@string/search"
         app:showAsAction="collapseActionView|ifRoom" />
     <item
         android:id="@+id/chat"
         android:icon="@drawable/ic_baseline_chat_24"
-        android:title="chat"
+        android:title="@string/chat"
         app:showAsAction="collapseActionView|ifRoom" />
     <item
         android:id="@+id/profil"
-        android:title="Profil" />
+        android:title="@string/profil" />
 
     <item
         android:id="@+id/setting_menu"
-        android:title="Setting" />
+        android:title="@string/setting" />
 </menu>

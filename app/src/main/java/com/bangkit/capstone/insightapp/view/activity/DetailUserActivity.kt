@@ -3,13 +3,10 @@ package com.bangkit.capstone.insightapp.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityDetailUserBinding
-import com.bangkit.capstone.insightapp.databinding.ActivitySplashBinding
 import com.bangkit.capstone.insightapp.databinding.ContentScrollingBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -21,15 +18,15 @@ class DetailUserActivity : AppCompatActivity() {
     private var _binding: ActivityDetailUserBinding? = null
     private val binding get() = _binding!!
 
-    private var __binding: ContentScrollingBinding? = null
-    private val bindingDetail get() = __binding!!
+    private var _binding2: ContentScrollingBinding? = null
+    private val bindingDetail get() = _binding2!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _binding = ActivityDetailUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        __binding = binding.content
+        _binding2 = binding.content
 
         setSupportActionBar(findViewById(R.id.toolbar))
         findViewById<ImageView>(R.id.iv_detail_image).setOnClickListener { view ->

@@ -1,25 +1,19 @@
 package com.bangkit.capstone.insightapp.view.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Icon
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.capstone.insightapp.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class MenuActivity : AppCompatActivity() {
@@ -42,10 +36,7 @@ class MenuActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -91,6 +82,7 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("InflateParams")
     private fun userNull() {
         val builder = AlertDialog.Builder(this)
         builder.setView(LayoutInflater.from(this).inflate(R.layout.alert_usernull, null))
@@ -103,7 +95,6 @@ class MenuActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         val alert = builder.create()
-//        alert.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         alert.show()
     }
 

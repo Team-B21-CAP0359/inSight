@@ -1,12 +1,11 @@
 package com.bangkit.capstone.insightapp.view.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.bangkit.capstone.insightapp.MainActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivitySplashBinding
 import com.bangkit.capstone.insightapp.sharedpref.NightModeSharedPref

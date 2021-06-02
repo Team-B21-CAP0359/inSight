@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
     android:padding="10dp"
+    android:paddingTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.activity.DetailUserActivity"
     tools:showIn="@layout/activity_detail_user">
@@ -21,7 +21,7 @@
             android:id="@+id/button_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log Out"/>
+            android:text="@string/log_out" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,10 +31,10 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:src="@drawable/ic_baseline_person_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/icon_for_username_detail" />
+                android:contentDescription="@string/icon_for_username_detail"
+                android:src="@drawable/ic_baseline_person_24" />
 
             <TextView
                 android:id="@+id/etNameUser"
@@ -53,10 +53,10 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:src="@drawable/ic_baseline_email_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/icon_for_email_detail" />
+                android:contentDescription="@string/icon_for_email_detail"
+                android:src="@drawable/ic_baseline_email_24" />
 
             <TextView
                 android:id="@+id/etEmailUser"
