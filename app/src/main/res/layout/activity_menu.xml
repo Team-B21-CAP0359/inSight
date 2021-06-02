@@ -12,7 +12,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="30dp"
         style="@style/BottomNavigation"
-        app:elevation="2dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:itemIconSize="30dp"
         app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
