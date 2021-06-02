@@ -12,16 +12,10 @@ import com.bangkit.capstone.insightapp.model.UserModel
 import com.bumptech.glide.Glide
 
 class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
-
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val userName : TextView = itemView.findViewById(R.id.username)
         val userPhoto : ImageView = itemView.findViewById(R.id.avatar)
         val email : TextView = itemView.findViewById(R.id.email)
-
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.ViewHolder {
@@ -38,7 +32,6 @@ class UserListAdapter(private val userList : ArrayList<UserModel>) : RecyclerVie
         Glide.with(holder.itemView.context)
             .load(url)
             .into(holder.userPhoto)
-
     }
 
     override fun getItemCount(): Int = userList.size

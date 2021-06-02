@@ -13,6 +13,7 @@
     <string name="icon_for_username_detail">icon for username detail</string>
     <string name="icon_for_email_detail">icon for email detail</string>
     <string name="title_activity_chat">ScrollingActivity</string>
+    <string name="cari">Cari</string>
 
 
 </resources>
