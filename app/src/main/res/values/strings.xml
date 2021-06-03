@@ -31,4 +31,9 @@
     <string name="chat">chat</string>
     <string name="profil">Profil</string>
     <string name="setting">Setting</string>
+    <string name="pendapatan">Pendapatan</string>
+    <string name="pengeluaran">Pengeluaran</string>
+    <string name="cari_data_trend">Cari Data Trend</string>
+    <string name="umur">Umur</string>
+    <string name="not_valid">Not Valid</string>
 </resources>
