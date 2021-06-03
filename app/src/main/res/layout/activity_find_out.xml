@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
     tools:context=".view.activity.FindOutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/umur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Umur Pendapatan"/>
+
+    <EditText
+        android:id="@+id/pendapatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pengeluaran"/>
+    <EditText
+        android:id="@+id/pengeluaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="apa ini hehe"/>
+
+    <Button
+        android:id="@+id/findout"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:drawableEnd="@drawable/ic_baseline_manage_search_24"
+        android:text="Cari Data Trend"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <TextView
+
+        android:id="@+id/hasil"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:text="hasil"/>
+
+</LinearLayout>
