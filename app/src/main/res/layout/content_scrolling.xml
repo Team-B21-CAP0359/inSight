@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
         android:orientation="vertical">
 
         <Button
@@ -64,8 +63,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textSize="15sp"
-                tools:text="aryapratama8501@gmail.com" />
+                tools:text="aryapratama8501@gmail.com"/>
+
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pakaian Favorite"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/load_image"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loading_login.json"
+            app:lottie_loop="true"/>
+
+        <ImageView
+            android:id="@+id/fashion_user_shirt"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            tools:src="@tools:sample/avatars"/>
 
     </LinearLayout>
 
