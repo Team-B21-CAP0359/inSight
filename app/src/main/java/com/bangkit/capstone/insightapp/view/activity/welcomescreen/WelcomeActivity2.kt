@@ -13,6 +13,9 @@ class WelcomeActivity2 : AppCompatActivity() {
     private var _binding: ActivityWelcome2Binding? = null
     private val binding get() = _binding!!
 
+    private var jenisShirtValid = false
+    private var namaShirtValid = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

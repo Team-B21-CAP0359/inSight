@@ -36,4 +36,5 @@
     <string name="cari_data_trend">Cari Data Trend</string>
     <string name="umur">Umur</string>
     <string name="not_valid">Not Valid</string>
+    <string name="not_valid_empty">Tidak Boleh Kosong</string>
 </resources>

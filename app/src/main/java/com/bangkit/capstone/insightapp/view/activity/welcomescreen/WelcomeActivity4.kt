@@ -24,6 +24,5 @@ class WelcomeActivity4 : AppCompatActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

@@ -24,7 +24,7 @@
       android:fontFamily="sans-serif-medium"
       android:gravity="center"
       android:layout_marginTop="16dp"
-      android:text="Untuk melanjutkan, silahkan masukan gaya pakaian anda"/>
+      android:text="Silahkan masukan gaya pakaian anda"/>
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -38,7 +38,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/jenis_style"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,7 +54,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nama_pakaian"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
