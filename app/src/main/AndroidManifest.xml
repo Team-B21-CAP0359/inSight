@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.InSightApp">
-        <activity android:name=".view.activity.WelcomeActivity4"></activity>
-        <activity android:name=".view.activity.WelcomeActivity3" />
-        <activity android:name=".view.activity.WelcomeActivity2" />
+        <activity android:name=".view.activity.welcomescreen.WelcomeActivity4"></activity>
+        <activity android:name=".view.activity.welcomescreen.WelcomeActivity3" />
+        <activity android:name=".view.activity.welcomescreen.WelcomeActivity2" />
         <activity android:name=".view.activity.FindOutActivity" />
         <activity
             android:name=".view.detail.GoodDetailActivity"
@@ -19,7 +19,7 @@
             android:name=".view.detail.UserDetailActivity"
             android:theme="@style/Theme.InSightApp.NoActionBar" />
         <activity android:name=".view.activity.ChatActivity" />
-        <activity android:name=".view.activity.WelcomeActivity" />
+        <activity android:name=".view.activity.welcomescreen.WelcomeActivity" />
         <activity android:name=".view.activity.SettingActivity" />
         <activity
             android:name=".view.activity.DetailUserActivity"

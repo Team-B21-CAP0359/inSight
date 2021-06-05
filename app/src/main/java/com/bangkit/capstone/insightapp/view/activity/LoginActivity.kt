@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
+import com.bangkit.capstone.insightapp.view.activity.welcomescreen.WelcomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -88,28 +89,28 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("Sign in Activity", "SignInWithCredential:success")
 
-                    firebaseuUid = mAuth.currentUser?.uid.toString()
-                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseuUid)
-                    val userHashMap = HashMap<String, Any>()
-                    userHashMap["uid"] = firebaseuUid
-                    userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
-                    userHashMap["username"] = mAuth.currentUser?.displayName.toString()
-                    userHashMap["email"] = mAuth.currentUser?.email.toString()
-                    userHashMap["status"] = "offline"
-                    userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
-                    userHashMap["bio"] = "Empty"
-
-                    refUser.updateChildren(userHashMap)
-                        .addOnCompleteListener { tasks ->
-                            if (tasks.isSuccessful) {
-                                Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+//                    firebaseuUid = mAuth.currentUser?.uid.toString()
+//                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseuUid)
+//                    val userHashMap = HashMap<String, Any>()
+//                    userHashMap["uid"] = firebaseuUid
+//                    userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
+//                    userHashMap["username"] = mAuth.currentUser?.displayName.toString()
+//                    userHashMap["email"] = mAuth.currentUser?.email.toString()
+//                    userHashMap["status"] = "offline"
+//                    userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
+//                    userHashMap["bio"] = "Empty"
+//
+//                    refUser.updateChildren(userHashMap)
+//                        .addOnCompleteListener { tasks ->
+//                            if (tasks.isSuccessful) {
+//                                Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+//                            } else {
+//                                Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
+//                            }
+//                        }
 
                     binding.loadingbarLogin.visibility = View.GONE
-                    val intent = Intent(this, MenuActivity::class.java)
+                    val intent = Intent(this, WelcomeActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
