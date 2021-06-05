@@ -47,7 +47,7 @@
 
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/upload"
             style="@style/TextAppearance.AppCompat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/finish_form"
+            android:id="@+id/finish"
             style="@style/TextAppearance.AppCompat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
