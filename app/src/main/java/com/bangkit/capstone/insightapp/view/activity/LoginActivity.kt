@@ -89,25 +89,25 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("Sign in Activity", "SignInWithCredential:success")
 
-                    firebaseuUid = mAuth.currentUser?.uid.toString()
-                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseuUid)
-                    val userHashMap = HashMap<String, Any>()
-                    userHashMap["uid"] = firebaseuUid
-                    userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
-                    userHashMap["username"] = mAuth.currentUser?.displayName.toString()
-                    userHashMap["email"] = mAuth.currentUser?.email.toString()
-                    userHashMap["status"] = "offline"
-                    userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
-                    userHashMap["bio"] = "Empty"
-
-                    refUser.updateChildren(userHashMap)
-                        .addOnCompleteListener { tasks ->
-                            if (tasks.isSuccessful) {
-                                Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+//                    firebaseuUid = mAuth.currentUser?.uid.toString()
+//                    refUser = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseuUid)
+//                    val userHashMap = HashMap<String, Any>()
+//                    userHashMap["uid"] = firebaseuUid
+//                    userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
+//                    userHashMap["username"] = mAuth.currentUser?.displayName.toString()
+//                    userHashMap["email"] = mAuth.currentUser?.email.toString()
+//                    userHashMap["status"] = "offline"
+//                    userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
+//                    userHashMap["bio"] = "Empty"
+//
+//                    refUser.updateChildren(userHashMap)
+//                        .addOnCompleteListener { tasks ->
+//                            if (tasks.isSuccessful) {
+//                                Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+//                            } else {
+//                                Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
+//                            }
+//                        }
 
                     binding.loadingbarLogin.visibility = View.GONE
                     val intent = Intent(this, WelcomeActivity::class.java)

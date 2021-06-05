@@ -49,9 +49,14 @@ class DetailUserActivity : AppCompatActivity() {
 
         bindingDetail.buttonLogout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            this.finish()
             mAuth.signOut()
+            val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+            val pref2 = applicationContext.getSharedPreferences("data_finish", MODE_PRIVATE)
+            pref.edit().clear().apply()
+            pref2.edit().clear().apply()
+            startActivity(intent)
+            finish()
+
         }
 
 
