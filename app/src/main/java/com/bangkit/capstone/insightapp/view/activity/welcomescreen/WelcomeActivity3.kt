@@ -54,6 +54,13 @@ class WelcomeActivity3 : AppCompatActivity() {
 
         binding.next3.setOnClickListener {
             val intent = Intent(this, WelcomeActivity4::class.java)
+            val namaSepatuValue = binding.namaSepatu.text.toString()
+            val jenisSepatuValue = binding.jenisStyleSepatu.text.toString()
+            val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putString("nama_sepatu", namaSepatuValue)
+            editor.putString("jenis_sepatu", jenisSepatuValue)
+            editor.apply()
             startActivity(intent)
         }
     }

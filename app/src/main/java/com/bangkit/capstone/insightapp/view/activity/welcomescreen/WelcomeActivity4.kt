@@ -22,6 +22,9 @@ class WelcomeActivity4 : AppCompatActivity() {
 
         binding.finish.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
+            val pref = applicationContext.getSharedPreferences("data_finish", MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putBoolean("finish", true).apply()
             startActivity(intent)
         }
     }

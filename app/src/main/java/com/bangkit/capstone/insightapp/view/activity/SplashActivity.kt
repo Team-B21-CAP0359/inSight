@@ -27,6 +27,8 @@ class SplashActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        val pref = applicationContext.getSharedPreferences("data_finish", MODE_PRIVATE)
+
         mAuth = FirebaseAuth.getInstance()
         val user = mAuth.currentUser
 
@@ -37,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
         isNightMode()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (null != user) {
+            if (null != user && pref.getBoolean("finish", false)) {
                 val menuIntent = Intent(this, MenuActivity::class.java)
                 startActivity(menuIntent)
                 finish()

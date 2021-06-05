@@ -1,6 +1,7 @@
 package com.bangkit.capstone.insightapp.view.activity.welcomescreen
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -55,6 +56,13 @@ class WelcomeActivity : AppCompatActivity() {
 
         binding.next1.setOnClickListener {
             val intent = Intent(this, WelcomeActivity2::class.java)
+            val namaShirtValue = binding.namaPakaian.text.toString()
+            val jenisShirtValue = binding.namaPakaian.text.toString()
+            val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putString("nama_shirt", namaShirtValue)
+            editor.putString("jenis_shirt", jenisShirtValue)
+            editor.apply()
             startActivity(intent)
         }
 

@@ -51,10 +51,15 @@ class WelcomeActivity2 : AppCompatActivity() {
             }
         })
 
-
-
         binding.next2.setOnClickListener {
             val intent = Intent(this, WelcomeActivity3::class.java)
+            val namaCelanaValue = binding.namaCelana.text.toString()
+            val jenisCelanaValue = binding.jenisStyleCelana.text.toString()
+            val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+            val editor = pref.edit()
+            editor.putString("nama_celana", namaCelanaValue)
+            editor.putString("jenis_celana", jenisCelanaValue)
+            editor.apply()
             startActivity(intent)
         }
 
