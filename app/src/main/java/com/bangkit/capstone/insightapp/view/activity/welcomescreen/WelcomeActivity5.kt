@@ -6,24 +6,17 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityWelcome3Binding
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome4Binding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
+import com.bangkit.capstone.insightapp.databinding.ActivityWelcome5Binding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import java.net.URI
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.HashMap
 
-@Suppress("DEPRECATION")
-class WelcomeActivity4 : AppCompatActivity() {
+class WelcomeActivity5 : AppCompatActivity() {
 
-    private var _binding: ActivityWelcome4Binding? = null
+    private var _binding: ActivityWelcome5Binding? = null
     private val binding get() = _binding!!
 
     private lateinit var refUser: DatabaseReference
@@ -33,25 +26,25 @@ class WelcomeActivity4 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        _binding = ActivityWelcome4Binding.inflate(layoutInflater)
-        setContentView(binding.root)
         supportActionBar?.hide()
+
+        _binding = ActivityWelcome5Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
         refUser = FirebaseDatabase.getInstance().reference
-        binding.next4.isEnabled = false
+        binding.next5.isEnabled = false
+
         binding.upload.setOnClickListener {
 
             selectImage()
 
         }
 
-        binding.next4.setOnClickListener {
-
+        binding.next5.setOnClickListener {
             uploadImage()
-
         }
+
     }
 
     private fun uploadImage() {
@@ -61,7 +54,7 @@ class WelcomeActivity4 : AppCompatActivity() {
         progressDialog.show()
 
         val fileName = mAuth.currentUser?.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName-shirt")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName-pants")
 
         storageReference.putFile(imageUri).addOnSuccessListener {
             binding.previewPhoto.setImageURI(null)
@@ -76,24 +69,21 @@ class WelcomeActivity4 : AppCompatActivity() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-
         startActivityForResult(intent, 100)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == 100 && resultCode == RESULT_OK) {
             imageUri = data?.data!!
-            binding.next4.isEnabled = true
+            binding.next5.isEnabled = true
             binding.previewPhoto.visibility = View.VISIBLE
             binding.previewPhoto.setImageURI(imageUri)
         }
     }
 
     private fun moveIntent() {
-        val intent = Intent(this, WelcomeActivity5::class.java)
+        val intent = Intent(this, WelcomeActivity6::class.java)
         startActivity(intent)
     }
-
 }

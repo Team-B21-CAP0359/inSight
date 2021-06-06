@@ -86,3 +86,8 @@ class DetailUserActivity : AppCompatActivity() {
 
     }
 }
+
+//animation file use
+//https://lottiefiles.com/nasomatrix
+//https://lottiefiles.com/jocars5
+//https://lottiefiles.com/user116435
