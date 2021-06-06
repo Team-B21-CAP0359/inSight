@@ -24,8 +24,17 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/jgp_background1"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/jgp_background1" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_detail_image"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/content_user"
+                tools:src="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -34,20 +43,12 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/Theme.InSightApp.PopupOverlay" />
 
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-        <include android:id="@+id/content" layout="@layout/content_scrolling" />
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_detail_image"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/content_user"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        tools:src="@tools:sample/avatars" />
+    <include
+        android:id="@+id/content"
+        layout="@layout/content_scrolling" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

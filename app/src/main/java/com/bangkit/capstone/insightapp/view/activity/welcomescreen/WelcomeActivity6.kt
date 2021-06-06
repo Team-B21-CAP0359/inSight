@@ -97,7 +97,7 @@ class WelcomeActivity6 : AppCompatActivity() {
         userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
         userHashMap["username"] = mAuth.currentUser?.displayName.toString()
         userHashMap["email"] = mAuth.currentUser?.email.toString()
-        userHashMap["status"] = "offline"
+        userHashMap["status"] = "logged"
         userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
         userHashMap["bio"] = "Empty"
         userHashMap["jenis_celana"] = pref.getString("jenis_celana", null).toString()

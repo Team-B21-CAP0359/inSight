@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/fashion_user_shirt"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:background="#DDDDDD"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/fashion_user_pants"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:background="#DDDDDD" />
+
+</LinearLayout>

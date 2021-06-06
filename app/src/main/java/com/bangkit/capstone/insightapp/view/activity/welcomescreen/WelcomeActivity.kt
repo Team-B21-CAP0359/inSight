@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcomeBinding
+import com.bangkit.capstone.insightapp.model.UserModel
+import com.bangkit.capstone.insightapp.viewmodel.UserListAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -17,6 +22,9 @@ class WelcomeActivity : AppCompatActivity() {
     private var jenisShirtValid = false
     private var namaShirtValid = false
 
+    private lateinit var dbRef : DatabaseReference
+    private lateinit var mAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,6 +33,7 @@ class WelcomeActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         validateButton()
+        mAuth = FirebaseAuth.getInstance()
 
         binding.jenisStyle.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -117,6 +126,4 @@ class WelcomeActivity : AppCompatActivity() {
             )
         }
     }
-
-
 }

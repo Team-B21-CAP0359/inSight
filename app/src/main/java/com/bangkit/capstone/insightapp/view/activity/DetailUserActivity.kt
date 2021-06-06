@@ -43,6 +43,48 @@ class DetailUserActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         bindingDetail.loadImage.visibility = View.VISIBLE
 
+        bindingDetail.showShirtStyle.setOnClickListener {
+            bindingDetail.styleShirt.visibility = View.VISIBLE
+            bindingDetail.nameShirt.visibility = View.VISIBLE
+            bindingDetail.closeShirtStyle.visibility = View.VISIBLE
+            bindingDetail.showShirtStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closeShirtStyle.setOnClickListener {
+            bindingDetail.styleShirt.visibility = View.GONE
+            bindingDetail.nameShirt.visibility = View.GONE
+            bindingDetail.closeShirtStyle.visibility = View.GONE
+            bindingDetail.showShirtStyle.visibility = View.VISIBLE
+        }
+
+        bindingDetail.showPantStyle.setOnClickListener {
+            bindingDetail.stylePants.visibility = View.VISIBLE
+            bindingDetail.namePants.visibility = View.VISIBLE
+            bindingDetail.closePantStyle.visibility = View.VISIBLE
+            bindingDetail.showPantStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closePantStyle.setOnClickListener {
+            bindingDetail.stylePants.visibility = View.GONE
+            bindingDetail.namePants.visibility = View.GONE
+            bindingDetail.closePantStyle.visibility = View.GONE
+            bindingDetail.showPantStyle.visibility = View.VISIBLE
+        }
+
+        bindingDetail.showShoeStyle.setOnClickListener {
+            bindingDetail.styleShoe.visibility = View.VISIBLE
+            bindingDetail.nameShoe.visibility = View.VISIBLE
+            bindingDetail.closeShoeStyle.visibility = View.VISIBLE
+            bindingDetail.showShoeStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closeShoeStyle.setOnClickListener {
+            bindingDetail.styleShoe.visibility = View.GONE
+            bindingDetail.nameShoe.visibility = View.GONE
+            bindingDetail.closeShoeStyle.visibility = View.GONE
+            bindingDetail.showShoeStyle.visibility = View.VISIBLE
+        }
+
         loadImage()
         loadUSer()
 
