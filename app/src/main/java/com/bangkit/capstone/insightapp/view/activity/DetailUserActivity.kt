@@ -40,36 +40,11 @@ class DetailUserActivity : AppCompatActivity() {
         }
 
         supportActionBar?.hide()
-
         mAuth = FirebaseAuth.getInstance()
-        val currentUser = mAuth.currentUser
-
         bindingDetail.loadImage.visibility = View.VISIBLE
 
-        val imageShirt = mAuth.currentUser?.uid
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageShirt")
-
-        val localFile = File.createTempFile("tempImage", "jpg")
-        storageRef.getFile(localFile).addOnSuccessListener {
-
-            bindingDetail.loadImage.visibility = View.GONE
-            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
-            bindingDetail.fashionUserShirt.setImageBitmap(bitmap)
-
-        }.addOnFailureListener {
-
-            bindingDetail.loadImage.visibility = View.GONE
-            Toast.makeText(this, "Failed to receive image", Toast.LENGTH_SHORT).show()
-
-        }
-
-        bindingDetail.etNameUser.text = currentUser?.displayName
-        bindingDetail.etEmailUser.text = currentUser?.email
-
-        Glide.with(this)
-            .load(currentUser?.photoUrl)
-            .into(binding.ivDetailImage)
-
+        loadImage()
+        loadUSer()
 
         bindingDetail.buttonLogout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -80,11 +55,65 @@ class DetailUserActivity : AppCompatActivity() {
             pref2.edit().clear().apply()
             startActivity(intent)
             finish()
+        }
+    }
 
+    private fun loadImage() {
+        val imageShirt = mAuth.currentUser?.uid
+        val storageRefShirt =
+            FirebaseStorage.getInstance().reference.child("images/$imageShirt-shirt")
+        val storageRefPants =
+            FirebaseStorage.getInstance().reference.child("images/$imageShirt-pants")
+        val storageRefShoe =
+            FirebaseStorage.getInstance().reference.child("images/$imageShirt-shoe")
+
+        val localFile = File.createTempFile("tempImage", "jpg")
+        val localFile2 = File.createTempFile("tempImage", "jpg")
+        val localFile3 = File.createTempFile("tempImage", "jpg")
+        storageRefShirt.getFile(localFile).addOnSuccessListener {
+            bindingDetail.loadImage.visibility = View.GONE
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            bindingDetail.fashionUserShirt.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+            bindingDetail.loadImage.visibility = View.GONE
+            Toast.makeText(this, "Failed to receive shirt image", Toast.LENGTH_SHORT).show()
         }
 
+        storageRefPants.getFile(localFile2).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
+            bindingDetail.fashionUserPants.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed to receive pants image", Toast.LENGTH_SHORT).show()
+        }
+
+        storageRefShoe.getFile(localFile3).addOnSuccessListener {
+            val bitMap = BitmapFactory.decodeFile(localFile3.absolutePath)
+            bindingDetail.fashionUserShoe.setImageBitmap(bitMap)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed to receive shoe image", Toast.LENGTH_SHORT).show()
+        }
 
     }
+
+    private fun loadUSer() {
+
+        val currentUser = mAuth.currentUser
+        bindingDetail.etNameUser.text = currentUser?.displayName
+        bindingDetail.etEmailUser.text = currentUser?.email
+
+        Glide.with(this)
+            .load(currentUser?.photoUrl)
+            .into(binding.ivDetailImage)
+
+        val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+        bindingDetail.styleCelana.text = pref.getString("jenis_celana", null).toString()
+        bindingDetail.styleSepatu.text = pref.getString("jenis_sepatu", null).toString()
+        bindingDetail.styleBaju.text = pref.getString("jenis_shirt", null).toString()
+        bindingDetail.namaCelana.text = pref.getString("nama_celana", null).toString()
+        bindingDetail.namaSepatu.text = pref.getString("nama_sepatu", null).toString()
+        bindingDetail.namaBaju.text = pref.getString("nama_shirt", null).toString()
+    }
+
 }
 
 //animation file use

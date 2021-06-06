@@ -8,8 +8,6 @@ import android.text.TextWatcher
 import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome2Binding
-import com.bangkit.capstone.insightapp.databinding.ActivityWelcomeBinding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
 
 class WelcomeActivity2 : AppCompatActivity() {
 
@@ -90,7 +88,8 @@ class WelcomeActivity2 : AppCompatActivity() {
     }
 
     private fun showJenisCelanaAlert(isNotValid: Boolean) {
-        binding.jenisStyleCelana.error = if (isNotValid) getString(R.string.not_valid_empty) else null
+        binding.jenisStyleCelana.error =
+            if (isNotValid) getString(R.string.not_valid_empty) else null
     }
 
     private fun showNamaCelanaAlert(isNotValid: Boolean) {
@@ -100,10 +99,20 @@ class WelcomeActivity2 : AppCompatActivity() {
     private fun validateButton() {
         if (namaCelanaValid && jenisCelanaValid) {
             binding.next2.isEnabled = true
-            binding.next2.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_blue_light))
+            binding.next2.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.holo_blue_light
+                )
+            )
         } else {
             binding.next2.isEnabled = false
-            binding.next2.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+            binding.next2.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.darker_gray
+                )
+            )
         }
     }
 }

@@ -6,21 +6,13 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityWelcome3Binding
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome4Binding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import java.net.URI
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.HashMap
 
-@Suppress("DEPRECATION")
+
 class WelcomeActivity4 : AppCompatActivity() {
 
     private var _binding: ActivityWelcome4Binding? = null

@@ -1,16 +1,13 @@
 package com.bangkit.capstone.insightapp.view.activity.welcomescreen
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcomeBinding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -82,7 +79,7 @@ class WelcomeActivity : AppCompatActivity() {
 
 
     private fun validateJenisShirt() {
-     val input = binding.jenisStyle.text.toString()
+        val input = binding.jenisStyle.text.toString()
         if (input.isEmpty()) {
             jenisShirtValid = false
             showJenisShirtAlert(true)
@@ -104,10 +101,20 @@ class WelcomeActivity : AppCompatActivity() {
     private fun validateButton() {
         if (namaShirtValid && jenisShirtValid) {
             binding.next1.isEnabled = true
-            binding.next1.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_blue_light))
+            binding.next1.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.holo_blue_light
+                )
+            )
         } else {
             binding.next1.isEnabled = false
-            binding.next1.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+            binding.next1.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.darker_gray
+                )
+            )
         }
     }
 

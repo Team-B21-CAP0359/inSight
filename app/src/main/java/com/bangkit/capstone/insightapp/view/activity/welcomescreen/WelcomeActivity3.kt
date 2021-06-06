@@ -7,9 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
-import com.bangkit.capstone.insightapp.databinding.ActivityWelcome2Binding
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome3Binding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
 
 class WelcomeActivity3 : AppCompatActivity() {
 
@@ -90,7 +88,8 @@ class WelcomeActivity3 : AppCompatActivity() {
     }
 
     private fun showJenisSepatuAlert(isNotValid: Boolean) {
-        binding.jenisStyleSepatu.error = if (isNotValid) getString(R.string.not_valid_empty) else null
+        binding.jenisStyleSepatu.error =
+            if (isNotValid) getString(R.string.not_valid_empty) else null
     }
 
     private fun showStyleSepatuAlert(isNotValid: Boolean) {
@@ -100,11 +99,20 @@ class WelcomeActivity3 : AppCompatActivity() {
     private fun validateButton() {
         if (namaSepatuValid && jenisSepatuValid) {
             binding.next3.isEnabled = true
-            binding.next3.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_blue_light))
+            binding.next3.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.holo_blue_light
+                )
+            )
         } else {
             binding.next3.isEnabled = false
-            binding.next3.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+            binding.next3.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.darker_gray
+                )
+            )
         }
     }
-
 }

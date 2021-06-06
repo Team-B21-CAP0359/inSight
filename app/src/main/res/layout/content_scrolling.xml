@@ -67,30 +67,190 @@
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Style Baju :"/>
+            <TextView
+                android:id="@+id/styleBaju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Baju :"/>
+            <TextView
+                android:id="@+id/namaBaju"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Style Celana :"/>
+            <TextView
+                android:id="@+id/styleCelana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Celana :"/>
+            <TextView
+                android:id="@+id/namaCelana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Sepatu :"/>
+            <TextView
+                android:id="@+id/namaSepatu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Style Sepatu :"/>
+            <TextView
+                android:id="@+id/styleSepatu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Style"
+                android:layout_marginStart="10dp"/>
+
+        </LinearLayout>
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pakaian Favorite"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="20dp"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/load_image"
             android:layout_width="match_parent"
             android:layout_height="36dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:visibility="gone"
             app:lottie_autoPlay="true"
             app:lottie_fileName="loading_login.json"
             app:lottie_loop="true"/>
 
-        <ImageView
-            android:id="@+id/fashion_user_shirt"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            tools:src="@tools:sample/avatars"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/fashion_user_shirt"
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:scaleType="centerCrop"
+                android:layout_height="150dp"
+                tools:src="@drawable/contoh_foto"/>
+            <ImageView
+                android:id="@+id/fashion_user_pants"
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:layout_marginStart="10dp"
+                android:scaleType="centerCrop"
+                android:layout_height="150dp"
+                tools:src="@tools:sample/avatars"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/fashion_user_shoe"
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:scaleType="centerCrop"
+                android:layout_height="150dp"
+                tools:src="@drawable/contoh_foto"/>
+            <ImageView
+                android:id="@+id/fashion_user_soon"
+                android:layout_marginTop="10dp"
+                android:layout_width="150dp"
+                android:layout_marginStart="10dp"
+                android:scaleType="centerCrop"
+                android:layout_height="150dp"
+                tools:src="@tools:sample/avatars"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

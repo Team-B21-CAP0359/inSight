@@ -50,8 +50,6 @@ class WelcomeActivity6 : AppCompatActivity() {
             uploadImage()
 
         }
-
-
     }
 
     private fun selectImage() {
@@ -92,7 +90,8 @@ class WelcomeActivity6 : AppCompatActivity() {
 
     private fun uploadFile() {
         val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
-        refUser = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser?.uid.toString())
+        refUser = FirebaseDatabase.getInstance().reference.child("Users")
+            .child(mAuth.currentUser?.uid.toString())
         val userHashMap = HashMap<String, Any>()
         userHashMap["uid"] = mAuth.currentUser?.uid.toString()
         userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
