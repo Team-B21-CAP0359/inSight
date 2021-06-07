@@ -18,15 +18,23 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="exitUntilCollapsed|snap|noScroll"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap|noScroll"
             app:toolbarId="@+id/toolbar">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/foto_sampul"
                 android:scaleType="centerCrop"
                 android:src="@drawable/jgp_background1" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_detail_image"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/content_user"
+                tools:src="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -35,92 +43,12 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/Theme.InSightApp.PopupOverlay" />
 
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:paddingTop="20dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".view.activity.DetailUserActivity"
-        tools:showIn="@layout/activity_detail_user">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_detail_image"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/content_user"
-                tools:src="@tools:sample/avatars" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/icon_for_username_detail"
-                    android:src="@drawable/ic_baseline_person_24" />
-
-                <TextView
-                    android:id="@+id/etNameUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textSize="15sp"
-                    tools:text="Dicky Arya Pratama" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                tools:ignore="UseCompoundDrawables">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/icon_for_email_detail"
-                    android:src="@drawable/ic_baseline_email_24" />
-
-                <TextView
-                    android:id="@+id/etEmailUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:textSize="15sp"
-                    tools:text="aryapratama8501@gmail.com" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_pesan"
-                style="@style/TextAppearance.AppCompat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:drawableEnd="@drawable/ic_baseline_email_24"
-                android:text="@string/kirim_email"
-                android:textAlignment="textStart"
-                android:textAllCaps="false"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
+    <include
+        android:id="@+id/content"
+        layout="@layout/content_user_list" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

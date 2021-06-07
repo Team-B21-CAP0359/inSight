@@ -39,11 +39,18 @@ class UserListAdapter(private val userList: ArrayList<UserModel>) :
         val dataUser = UserModel(
             currentItem.bio,
             currentItem.email,
+            currentItem.jenis_celana,
+            currentItem.jenis_sepatu,
+            currentItem.jenis_shirt,
+            currentItem.nama_celana,
+            currentItem.nama_sepatu,
+            currentItem.nama_shirt,
             currentItem.profile_photo,
             currentItem.search,
             currentItem.status,
             currentItem.uid,
-            currentItem.username
+            currentItem.username,
+
         )
 
         holder.itemView.setOnClickListener {

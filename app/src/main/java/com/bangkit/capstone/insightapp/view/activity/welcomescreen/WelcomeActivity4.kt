@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome4Binding
+import com.bangkit.capstone.insightapp.ml.ModelShirt
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 
 class WelcomeActivity4 : AppCompatActivity() {
@@ -80,6 +83,22 @@ class WelcomeActivity4 : AppCompatActivity() {
             binding.next4.isEnabled = true
             binding.previewPhoto.visibility = View.VISIBLE
             binding.previewPhoto.setImageURI(imageUri)
+
+            val model = ModelShirt.newInstance(this)
+
+
+// Creates inputs for reference.
+            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 28, 28, 1), DataType.FLOAT32)
+            inputFeature0.loadBuffer(byteBuffer)
+
+// Runs model inference and gets result.
+            val outputs = model.process(inputFeature0)
+            val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+// Releases model resources if no longer used.
+            model.close()
+
+
         }
     }
 

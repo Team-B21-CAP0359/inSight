@@ -1,18 +1,26 @@
 package com.bangkit.capstone.insightapp.view.detail
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.databinding.ActivityUserDetailBinding
+import com.bangkit.capstone.insightapp.databinding.ContentUserListBinding
 import com.bangkit.capstone.insightapp.model.UserModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class UserDetailActivity : AppCompatActivity() {
 
     private var _binding: ActivityUserDetailBinding? = null
     private val binding get() = _binding!!
+
+    private var _binding2: ContentUserListBinding? = null
+    private val bindingDetail get() = _binding2!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,18 +29,21 @@ class UserDetailActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        setData()
+        _binding2 = binding.content
 
-        binding.btnPesan.setOnClickListener {
-            reportEmail()
-        }
+        setData()
+        loadImage()
+
+//        binding.btnPesan.setOnClickListener {
+//            reportEmail()
+//        }
 
     }
 
     private fun setData() {
         val dataUser = intent.getParcelableExtra<UserModel>(EXTRA_DETAIL) as UserModel
-        binding.etNameUser.text = dataUser.username
-        binding.etEmailUser.text = dataUser.email
+        bindingDetail.etNameUser.text = dataUser.username
+        bindingDetail.etEmailUser.text = dataUser.email
         Glide.with(this)
             .load(dataUser.profile_photo).apply(RequestOptions())
             .into(binding.ivDetailImage)
@@ -52,6 +63,42 @@ class UserDetailActivity : AppCompatActivity() {
         }
         catch (ex:android.content.ActivityNotFoundException) {
             Toast.makeText(this, "Tidak ada aplikasi email terinstall", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun loadImage() {
+        val dataUser = intent.getParcelableExtra<UserModel>(EXTRA_DETAIL) as UserModel
+        val storageRefShirt =
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-shirt")
+        val storageRefPants =
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-pants")
+        val storageRefShoe =
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-shoe")
+
+        val localFile = File.createTempFile("tempImage", "jpg")
+        val localFile2 = File.createTempFile("tempImage", "jpg")
+        val localFile3 = File.createTempFile("tempImage", "jpg")
+        storageRefShirt.getFile(localFile).addOnSuccessListener {
+            bindingDetail.loadImage.visibility = View.GONE
+            val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            bindingDetail.fashionUserShirt.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+            bindingDetail.loadImage.visibility = View.GONE
+            Toast.makeText(this, "Failed to receive shirt image", Toast.LENGTH_SHORT).show()
+        }
+
+        storageRefPants.getFile(localFile2).addOnSuccessListener {
+            val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
+            bindingDetail.fashionUserPants.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed to receive pants image", Toast.LENGTH_SHORT).show()
+        }
+
+        storageRefShoe.getFile(localFile3).addOnSuccessListener {
+            val bitMap = BitmapFactory.decodeFile(localFile3.absolutePath)
+            bindingDetail.fashionUserShoe.setImageBitmap(bitMap)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed to receive shoe image", Toast.LENGTH_SHORT).show()
         }
     }
 
