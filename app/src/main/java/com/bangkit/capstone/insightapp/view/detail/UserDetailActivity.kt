@@ -22,21 +22,69 @@ class UserDetailActivity : AppCompatActivity() {
     private var _binding2: ContentUserListBinding? = null
     private val bindingDetail get() = _binding2!!
 
+    private var imageDone1 = false
+    private var imageDone2 = false
+    private var imageDone3 = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityUserDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
+        supportActionBar?.title = "Detail User"
 
         _binding2 = binding.content
 
         setData()
         loadImage()
 
+        bindingDetail.loadImage.visibility = View.VISIBLE
+
 //        binding.btnPesan.setOnClickListener {
 //            reportEmail()
 //        }
+
+        bindingDetail.showShirtStyle.setOnClickListener {
+            bindingDetail.styleShirt.visibility = View.VISIBLE
+            bindingDetail.nameShirt.visibility = View.VISIBLE
+            bindingDetail.closeShirtStyle.visibility = View.VISIBLE
+            bindingDetail.showShirtStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closeShirtStyle.setOnClickListener {
+            bindingDetail.styleShirt.visibility = View.GONE
+            bindingDetail.nameShirt.visibility = View.GONE
+            bindingDetail.closeShirtStyle.visibility = View.GONE
+            bindingDetail.showShirtStyle.visibility = View.VISIBLE
+        }
+
+        bindingDetail.showPantStyle.setOnClickListener {
+            bindingDetail.stylePants.visibility = View.VISIBLE
+            bindingDetail.namePants.visibility = View.VISIBLE
+            bindingDetail.closePantStyle.visibility = View.VISIBLE
+            bindingDetail.showPantStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closePantStyle.setOnClickListener {
+            bindingDetail.stylePants.visibility = View.GONE
+            bindingDetail.namePants.visibility = View.GONE
+            bindingDetail.closePantStyle.visibility = View.GONE
+            bindingDetail.showPantStyle.visibility = View.VISIBLE
+        }
+
+        bindingDetail.showShoeStyle.setOnClickListener {
+            bindingDetail.styleShoe.visibility = View.VISIBLE
+            bindingDetail.nameShoe.visibility = View.VISIBLE
+            bindingDetail.closeShoeStyle.visibility = View.VISIBLE
+            bindingDetail.showShoeStyle.visibility = View.GONE
+        }
+
+        bindingDetail.closeShoeStyle.setOnClickListener {
+            bindingDetail.styleShoe.visibility = View.GONE
+            bindingDetail.nameShoe.visibility = View.GONE
+            bindingDetail.closeShoeStyle.visibility = View.GONE
+            bindingDetail.showShoeStyle.visibility = View.VISIBLE
+        }
 
     }
 
@@ -47,6 +95,12 @@ class UserDetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(dataUser.profile_photo).apply(RequestOptions())
             .into(binding.ivDetailImage)
+        bindingDetail.styleCelana.text = dataUser.jenis_celana
+        bindingDetail.styleSepatu.text = dataUser.jenis_sepatu
+        bindingDetail.styleBaju.text = dataUser.jenis_shirt
+        bindingDetail.namaCelana.text = dataUser.nama_celana
+        bindingDetail.namaSepatu.text = dataUser.nama_sepatu
+        bindingDetail.namaBaju.text = dataUser.nama_shirt
     }
 
 
@@ -69,18 +123,18 @@ class UserDetailActivity : AppCompatActivity() {
     private fun loadImage() {
         val dataUser = intent.getParcelableExtra<UserModel>(EXTRA_DETAIL) as UserModel
         val storageRefShirt =
-            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-shirt")
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-image/shirt")
         val storageRefPants =
-            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-pants")
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-image/pants")
         val storageRefShoe =
-            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-shoe")
+            FirebaseStorage.getInstance().reference.child("images/${dataUser.uid}-image/shoe")
 
         val localFile = File.createTempFile("tempImage", "jpg")
         val localFile2 = File.createTempFile("tempImage", "jpg")
         val localFile3 = File.createTempFile("tempImage", "jpg")
         storageRefShirt.getFile(localFile).addOnSuccessListener {
-            bindingDetail.loadImage.visibility = View.GONE
             val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
+            bindingDetail.loadImage.visibility = View.GONE
             bindingDetail.fashionUserShirt.setImageBitmap(bitmap)
         }.addOnFailureListener {
             bindingDetail.loadImage.visibility = View.GONE

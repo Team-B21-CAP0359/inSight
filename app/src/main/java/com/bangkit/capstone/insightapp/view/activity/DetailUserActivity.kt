@@ -101,13 +101,13 @@ class DetailUserActivity : AppCompatActivity() {
     }
 
     private fun loadImage() {
-        val imageShirt = mAuth.currentUser?.uid
+        val fileName = mAuth.currentUser?.uid
         val storageRefShirt =
-            FirebaseStorage.getInstance().reference.child("images/$imageShirt-shirt")
+            FirebaseStorage.getInstance().reference.child("images/$fileName-image/shirt")
         val storageRefPants =
-            FirebaseStorage.getInstance().reference.child("images/$imageShirt-pants")
+            FirebaseStorage.getInstance().reference.child("images/$fileName-image/pants")
         val storageRefShoe =
-            FirebaseStorage.getInstance().reference.child("images/$imageShirt-shoe")
+            FirebaseStorage.getInstance().reference.child("images/$fileName-image/shoe")
 
         val localFile = File.createTempFile("tempImage", "jpg")
         val localFile2 = File.createTempFile("tempImage", "jpg")

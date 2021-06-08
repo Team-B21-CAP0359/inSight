@@ -52,7 +52,7 @@ class WelcomeActivity5 : AppCompatActivity() {
         progressDialog.show()
 
         val fileName = mAuth.currentUser?.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName-pants")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName-image/pants")
 
         storageReference.putFile(imageUri).addOnSuccessListener {
             binding.previewPhoto.setImageURI(null)

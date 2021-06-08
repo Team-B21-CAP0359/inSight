@@ -13,30 +13,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view"
-            android:layout_width="match_parent"
-            android:layout_height="235dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="welcome.json"
-            app:lottie_loop="true" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="Untuk melanjutkan, silahkan upload foto pakaian anda" />
+            android:text="Silahkan upload foto pakaian anda" />
 
         <TextView
+            android:id="@+id/resulttest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="Contoh Foto" />
+            tools:text="Contoh Foto" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,6 +60,20 @@
             android:layout_marginRight="10dp"
             android:drawableEnd="@drawable/ic_baseline_cloud_upload_24"
             android:text="Upload"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/check"
+            style="@style/TextAppearance.AppCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableEnd="@drawable/ic_baseline_cloud_upload_24"
+            android:text="Check"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textSize="16sp" />

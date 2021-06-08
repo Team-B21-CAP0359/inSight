@@ -8,14 +8,6 @@
     android:padding="8dp"
     tools:context=".view.activity.welcomescreen.WelcomeActivity">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="match_parent"
-        android:layout_height="235dp"
-        android:layout_gravity="center"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="welcome.json"
-        app:lottie_loop="true" />
 
     <TextView
         android:layout_width="match_parent"

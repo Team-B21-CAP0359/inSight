@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcomeBinding
 import com.bangkit.capstone.insightapp.model.UserModel
+import com.bangkit.capstone.insightapp.view.activity.welcomescreen.forumkm.UmkmWelcome1
 import com.bangkit.capstone.insightapp.viewmodel.UserListAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -34,6 +35,11 @@ class WelcomeActivity : AppCompatActivity() {
 
         validateButton()
         mAuth = FirebaseAuth.getInstance()
+
+        binding.umkm.setOnClickListener {
+            val intent = Intent(this, UmkmWelcome1::class.java)
+            startActivity(intent)
+        }
 
         binding.jenisStyle.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -63,7 +69,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding.next1.setOnClickListener {
             val intent = Intent(this, WelcomeActivity2::class.java)
             val namaShirtValue = binding.namaPakaian.text.toString()
-            val jenisShirtValue = binding.namaPakaian.text.toString()
+            val jenisShirtValue = binding.jenisStyle.text.toString()
             val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
             val editor = pref.edit()
             editor.putString("nama_shirt", namaShirtValue)
