@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.bangkit.capstone.insightapp.view.activity.welcomescreen
+package com.bangkit.capstone.insightapp.view.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -9,18 +9,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.bangkit.capstone.insightapp.databinding.ActivityWelcome6Binding
-import com.bangkit.capstone.insightapp.view.activity.MenuActivity
+import com.bangkit.capstone.insightapp.databinding.ActivityAddBarangBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.HashMap
 
-class WelcomeActivity6 : AppCompatActivity() {
+@Suppress("DEPRECATION")
+class AddBarangActivity : AppCompatActivity() {
 
-    private var _binding: ActivityWelcome6Binding? = null
+    private var _binding: ActivityAddBarangBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var refUser: DatabaseReference
@@ -31,25 +32,20 @@ class WelcomeActivity6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        _binding = ActivityWelcome6Binding.inflate(layoutInflater)
+        _binding = ActivityAddBarangBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
 
         mAuth = FirebaseAuth.getInstance()
         refUser = FirebaseDatabase.getInstance().reference
-        binding.finish.isEnabled = false
+
+        binding.nextUmkm.setOnClickListener {
+            uploadImage()
+        }
 
         binding.upload.setOnClickListener {
-
             selectImage()
-
         }
 
-        binding.finish.setOnClickListener {
-
-            uploadImage()
-
-        }
     }
 
     private fun selectImage() {
@@ -57,15 +53,16 @@ class WelcomeActivity6 : AppCompatActivity() {
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent, 100)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100 && resultCode == RESULT_OK) {
             imageUri = data?.data!!
-            binding.finish.isEnabled = true
-            binding.previewPhoto.visibility = View.VISIBLE
-            binding.previewPhoto.setImageURI(imageUri)
+            binding.nextUmkm.isEnabled = true
+            binding.priviewImage.visibility = View.VISIBLE
+            binding.priviewImage.setImageURI(imageUri)
         }
     }
 
@@ -77,41 +74,44 @@ class WelcomeActivity6 : AppCompatActivity() {
 
         val fileName = mAuth.currentUser?.uid
         val storageReference =
-            FirebaseStorage.getInstance().getReference("images/$fileName-image/shoe")
+            FirebaseStorage.getInstance().getReference("images/$fileName-shop/barang")
 
         storageReference.putFile(imageUri).addOnSuccessListener {
-            binding.previewPhoto.setImageURI(null)
+            binding.priviewImage.setImageURI(null)
             if (progressDialog.isShowing) progressDialog.dismiss()
-            moveIntent()
-            uploadFile()
+            uploadData()
         }.addOnFailureListener {
             if (progressDialog.isShowing) progressDialog.dismiss()
         }
     }
 
-    private fun uploadFile() {
+    private fun uploadData() {
         val pref = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
-        refUser = FirebaseDatabase.getInstance().reference.child("Users")
+        refUser = FirebaseDatabase.getInstance().reference.child("barangJual")
             .child(mAuth.currentUser?.uid.toString())
+
+        val COUNTRY = "ID"
+        val LANGUAGE = "in"
+        val harga = binding.hargaJual.text.toString().toDouble()
+
         val userHashMap = HashMap<String, Any>()
         userHashMap["uid"] = mAuth.currentUser?.uid.toString()
         userHashMap["profile_photo"] = mAuth.currentUser?.photoUrl.toString()
         userHashMap["username"] = mAuth.currentUser?.displayName.toString()
         userHashMap["email"] = mAuth.currentUser?.email.toString()
-        userHashMap["status"] = "logged"
         userHashMap["search"] = mAuth.currentUser?.displayName.toString().toLowerCase(Locale.ROOT)
-        userHashMap["bio"] = "Empty"
-        userHashMap["jenis_celana"] = pref.getString("jenis_celana", null).toString()
-        userHashMap["jenis_sepatu"] = pref.getString("jenis_sepatu", null).toString()
-        userHashMap["jenis_shirt"] = pref.getString("jenis_shirt", null).toString()
-        userHashMap["nama_celana"] = pref.getString("nama_celana", null).toString()
-        userHashMap["nama_sepatu"] = pref.getString("nama_sepatu", null).toString()
-        userHashMap["nama_shirt"] = pref.getString("nama_shirt", null).toString()
-
+        userHashMap["nama_barang"] = binding.barangJual.text.toString()
+        userHashMap["deskripsi_barang"] = binding.deksirpsiJual.text.toString()
+        userHashMap["nama_perusahaan"] = pref.getString("nama_perusahaan", null).toString()
+        userHashMap["alamat_perusahaan"] = pref.getString("alamat_perusahaan", null).toString()
+        userHashMap["wa_penjual"] = pref.getString("nomer_wa", null).toString()
+        userHashMap["harga_barang"] =
+            NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(harga)
         refUser.updateChildren(userHashMap)
             .addOnCompleteListener { tasks ->
                 if (tasks.isSuccessful) {
-                    Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+                    moveIntent()
+                    Toast.makeText(this, "Jual Barang Sukses !", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show()
                 }
@@ -119,10 +119,7 @@ class WelcomeActivity6 : AppCompatActivity() {
     }
 
     private fun moveIntent() {
-        val intent = Intent(this, MenuActivity::class.java)
-        val pref2 = applicationContext.getSharedPreferences("data_finish", MODE_PRIVATE)
-        val editor = pref2.edit()
-        editor.putBoolean("finish", true).apply()
+        val intent = Intent(this, DetailUserActivity::class.java)
         startActivity(intent)
         finish()
     }

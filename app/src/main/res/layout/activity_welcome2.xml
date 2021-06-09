@@ -12,17 +12,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="Silahkan masukan gaya Celana anda"/>
+        android:text="@string/silahkan_masukan_gaya_celana_anda" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Jenis Celana Cnth. Track Pants"
+        android:hint="@string/jenis_celana_cnth_track_pants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Jenis Pakaian Cnth. Wide-legged denim"
+        android:hint="@string/jenis_pakaian_cnth_wide_legged_denim"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -58,7 +58,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:drawableEnd="@drawable/ic_baseline_navigate_next_24"
-        android:text="Next"
+        android:text="@string/next"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textSize="16sp" />

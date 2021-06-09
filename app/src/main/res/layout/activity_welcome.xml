@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".view.activity.welcomescreen.WelcomeActivity">
 
 
@@ -18,20 +18,20 @@
         app:lottie_fileName="welcome.json"
         app:lottie_loop="true" />
 
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:fontFamily="sans-serif-medium"
-      android:gravity="center"
-      android:layout_marginTop="16dp"
-      android:text="Silahkan masukan gaya pakaian anda"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/silahkan_masukan_gaya_pakaian_anda" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Jenis Pakaian Cnth. Casual Style"
+        android:hint="@string/jenis_pakaian_cnth_casual_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Jenis Pakaian Cnth. Puffed outfit"
+        android:hint="@string/jenis_pakaian_cnth_puffed_outfit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -67,17 +67,17 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:drawableEnd="@drawable/ic_baseline_navigate_next_24"
-        android:text="Next"
+        android:text="@string/next"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/umkm"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saya Pelaku Umkm"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/saya_pelaku_umkm" />
 
 </LinearLayout>

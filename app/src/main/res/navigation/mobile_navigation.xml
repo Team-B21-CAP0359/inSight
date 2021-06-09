@@ -22,4 +22,10 @@
         android:name="com.bangkit.capstone.insightapp.view.fragment.ui.shoe.ShoeFragment"
         android:label="@string/Sepatu"
         tools:layout="@layout/fragment_user" />
+
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.bangkit.capstone.insightapp.view.fragment.ui.shop.ShopFragment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop" />
 </navigation>

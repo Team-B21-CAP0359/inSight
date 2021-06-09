@@ -1,11 +1,13 @@
+@file:Suppress("DEPRECATION")
+
 package com.bangkit.capstone.insightapp.view.activity.welcomescreen
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.databinding.ActivityWelcome5Binding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -52,7 +54,8 @@ class WelcomeActivity5 : AppCompatActivity() {
         progressDialog.show()
 
         val fileName = mAuth.currentUser?.uid
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName-image/pants")
+        val storageReference =
+            FirebaseStorage.getInstance().getReference("images/$fileName-image/pants")
 
         storageReference.putFile(imageUri).addOnSuccessListener {
             binding.previewPhoto.setImageURI(null)

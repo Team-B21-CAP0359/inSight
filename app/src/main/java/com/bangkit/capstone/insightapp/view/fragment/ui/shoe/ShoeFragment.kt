@@ -1,4 +1,5 @@
 package com.bangkit.capstone.insightapp.view.fragment.ui.shoe
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,8 @@ import com.google.firebase.database.*
 
 class ShoeFragment : Fragment() {
 
-    private lateinit var dbRef : DatabaseReference
-    private lateinit var userRecyclerView : RecyclerView
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var userRecyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<GoodModel>
 
     private var _binding: FragmentUserBinding? = null
@@ -56,6 +57,7 @@ class ShoeFragment : Fragment() {
                     userRecyclerView.adapter = GoodListAdapter(userArrayList)
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 binding.progressBarProfil.visibility = View.GONE
             }

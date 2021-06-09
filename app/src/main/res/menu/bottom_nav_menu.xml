@@ -16,4 +16,9 @@
         android:icon="@drawable/shoes"
         android:title="@string/Sepatu" />
 
+    <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/shop" />
+
 </menu>

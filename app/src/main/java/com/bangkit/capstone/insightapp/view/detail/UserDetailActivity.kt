@@ -1,6 +1,5 @@
 package com.bangkit.capstone.insightapp.view.detail
 
-import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -21,10 +20,6 @@ class UserDetailActivity : AppCompatActivity() {
 
     private var _binding2: ContentUserListBinding? = null
     private val bindingDetail get() = _binding2!!
-
-    private var imageDone1 = false
-    private var imageDone2 = false
-    private var imageDone3 = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,22 +98,6 @@ class UserDetailActivity : AppCompatActivity() {
         bindingDetail.namaBaju.text = dataUser.nama_shirt
     }
 
-
-    private fun reportEmail() {
-        val dataUser = intent.getParcelableExtra<UserModel>(EXTRA_DETAIL) as UserModel
-        val i = Intent(Intent.ACTION_SEND)
-        i.type = "message/rfc822"
-        i.putExtra(Intent.EXTRA_EMAIL, arrayOf(dataUser.email.toString()))
-        i.putExtra(Intent.EXTRA_SUBJECT, "Hay, Apa Kabar Pegiat Fashion")
-        i.putExtra(Intent.EXTRA_TEXT, " ")
-        try
-        {
-            startActivity(Intent.createChooser(i, "Send mail..."))
-        }
-        catch (ex:android.content.ActivityNotFoundException) {
-            Toast.makeText(this, "Tidak ada aplikasi email terinstall", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     private fun loadImage() {
         val dataUser = intent.getParcelableExtra<UserModel>(EXTRA_DETAIL) as UserModel

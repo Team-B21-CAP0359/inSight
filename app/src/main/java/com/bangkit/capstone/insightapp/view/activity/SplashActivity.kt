@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
         val user = mAuth.currentUser
 
         Glide.with(this)
-            .load(R.drawable.splash_logo)
+            .load(R.drawable.ic_logo2)
             .into(binding.SplashView)
 
         isNightMode()

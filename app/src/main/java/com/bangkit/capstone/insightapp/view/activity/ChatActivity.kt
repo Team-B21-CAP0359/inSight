@@ -2,11 +2,11 @@ package com.bangkit.capstone.insightapp.view.activity
 
 import android.app.SearchManager
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.capstone.insightapp.R
@@ -16,12 +16,11 @@ import com.bangkit.capstone.insightapp.viewmodel.UserListAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ChatActivity : AppCompatActivity() {
 
-    private lateinit var dbRef : DatabaseReference
-    private lateinit var userRecyclerView : RecyclerView
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var userRecyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<UserModel>
 
     private var _binding: ActivityChatBinding? = null
@@ -57,6 +56,7 @@ class ChatActivity : AppCompatActivity() {
                     userRecyclerView.adapter = UserListAdapter(userArrayList)
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 binding.progressBarProfil.visibility = View.GONE
             }
@@ -109,6 +109,7 @@ class ChatActivity : AppCompatActivity() {
 
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 binding.progressBarProfil.visibility = View.GONE
             }

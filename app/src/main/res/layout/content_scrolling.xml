@@ -13,14 +13,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_logout"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/log_out" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_logout"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_baseline_login_24"
+                android:text="Logout"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/daftar_umkm"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawableEnd="@drawable/ic_baseline_shopping_cart_24"
+                android:text="Daftar Umkm"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/tambah_barang"
+                style="@style/TextAppearance.AppCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawableEnd="@drawable/ic_baseline_add_shopping_cart_24"
+                android:text="Tambah Barang"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
     android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".view.activity.FindOutActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -18,11 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/umur"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/umur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -37,9 +37,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pendapatan"
-            android:inputType="number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -54,9 +54,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pengeluaran"
-            android:inputType="number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -76,10 +76,10 @@
     <TextView
 
         android:id="@+id/hasil"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="hasil"/>
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        tools:text="hasil" />
 
 </LinearLayout>

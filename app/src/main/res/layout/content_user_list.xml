@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Baju"
+            android:text="@string/tampilkan_style_baju"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         <TextView
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Baju"
+            android:text="@string/tampilkan_style_baju"
             android:visibility="gone"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_up_24" />
 
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Style Baju :" />
+                android:text="@string/style_baju" />
 
             <TextView
                 android:id="@+id/styleBaju"
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Baju :" />
+                android:text="@string/nama_baju" />
 
             <TextView
                 android:id="@+id/namaBaju"
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Celana"
+            android:text="@string/tampilkan_style_celana"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         <TextView
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Celana"
+            android:text="@string/tampilkan_style_celana"
             android:visibility="gone"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_up_24" />
 
@@ -148,7 +148,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Style Celana :" />
+                android:text="@string/style_celana" />
 
             <TextView
                 android:id="@+id/styleCelana"
@@ -170,7 +170,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Celana :" />
+                android:text="@string/nama_celana" />
 
             <TextView
                 android:id="@+id/namaCelana"
@@ -186,7 +186,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Sepatu"
+            android:text="@string/tampilkan_style_sepatu"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         <TextView
@@ -194,7 +194,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tampilkan Style Sepatu"
+            android:text="@string/tampilkan_style_sepatu"
             android:visibility="gone"
             app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_up_24" />
 
@@ -210,7 +210,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Sepatu :" />
+                android:text="@string/nama_sepatu" />
 
             <TextView
                 android:id="@+id/namaSepatu"
@@ -232,7 +232,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Style Sepatu :" />
+                android:text="@string/style_sepatu" />
 
             <TextView
                 android:id="@+id/styleSepatu"
@@ -250,7 +250,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/light_blue"
             android:gravity="center"
-            android:text="Pakaian Favorite"
+            android:text="@string/pakaian_favorite"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -276,6 +276,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/foto_fashion_user"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/contoh_foto" />
 
@@ -285,6 +286,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/foto_fashion_user"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
 
@@ -302,6 +304,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/foto_fashion_user"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/contoh_foto" />
 
@@ -311,6 +314,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/foto_fashion_user"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
 

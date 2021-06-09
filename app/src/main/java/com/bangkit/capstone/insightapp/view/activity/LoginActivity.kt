@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
@@ -15,11 +14,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import java.util.*
-import kotlin.collections.HashMap
 
+@Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
 
     private var _binding: ActivityLoginBinding? = null
@@ -27,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignClient: GoogleSignInClient
-    private lateinit var refUser: DatabaseReference
-    private var firebaseuUid: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

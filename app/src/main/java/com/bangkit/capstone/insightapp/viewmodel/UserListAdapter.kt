@@ -51,7 +51,7 @@ class UserListAdapter(private val userList: ArrayList<UserModel>) :
             currentItem.uid,
             currentItem.username,
 
-        )
+            )
 
         holder.itemView.setOnClickListener {
             val moveDetail = Intent(holder.itemView.context, UserDetailActivity::class.java)

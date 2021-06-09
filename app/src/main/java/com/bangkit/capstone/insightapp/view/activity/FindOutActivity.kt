@@ -1,14 +1,13 @@
 package com.bangkit.capstone.insightapp.view.activity
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityFindOutBinding
-import com.bangkit.capstone.insightapp.databinding.ActivityLoginBinding
 import com.bangkit.capstone.insightapp.ml.Mall
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -69,11 +68,11 @@ class FindOutActivity : AppCompatActivity() {
 
         binding.findout.setOnClickListener {
 
-            val v1 : Int = binding.umur.text.toString().toInt()
-            val v2 : Int = binding.pendapatan.text.toString().toInt()
-            val v3 : Int = binding.pengeluaran.text.toString().toInt()
+            val v1: Int = binding.umur.text.toString().toInt()
+            val v2: Int = binding.pendapatan.text.toString().toInt()
+            val v3: Int = binding.pengeluaran.text.toString().toInt()
 
-            val byteBuffer : ByteBuffer = ByteBuffer.allocateDirect(3 * 4)
+            val byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(3 * 4)
             byteBuffer.putInt(v1)
             byteBuffer.putInt(v2)
             byteBuffer.putInt(v3)
@@ -140,10 +139,20 @@ class FindOutActivity : AppCompatActivity() {
     private fun validateButton() {
         if (pengeluaranValid && pendapatanValid && umurValid) {
             binding.findout.isEnabled = true
-            binding.findout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_purple))
+            binding.findout.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.holo_purple
+                )
+            )
         } else {
             binding.findout.isEnabled = false
-            binding.findout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+            binding.findout.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.darker_gray
+                )
+            )
         }
     }
 

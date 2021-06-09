@@ -1,7 +1,7 @@
 package com.bangkit.capstone.insightapp.view.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.databinding.ActivityGoodDetailBinding
 import com.bangkit.capstone.insightapp.databinding.ContentGoodDetailBinding
 import com.bangkit.capstone.insightapp.model.GoodModel

@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.capstone.insightapp.R
 import com.bangkit.capstone.insightapp.databinding.ActivityDetailUserBinding
 import com.bangkit.capstone.insightapp.databinding.ContentScrollingBinding
+import com.bangkit.capstone.insightapp.view.activity.welcomescreen.forumkm.UmkmWelcome1
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
@@ -42,6 +43,22 @@ class DetailUserActivity : AppCompatActivity() {
         supportActionBar?.hide()
         mAuth = FirebaseAuth.getInstance()
         bindingDetail.loadImage.visibility = View.VISIBLE
+
+        val prefCheck = applicationContext.getSharedPreferences("data", MODE_PRIVATE)
+        val status = prefCheck.getString("role", "null").toString()
+
+        if (status.contains("umkm")) {
+            bindingDetail.daftarUmkm.visibility = View.GONE
+            bindingDetail.tambahBarang.visibility = View.VISIBLE
+        } else {
+            bindingDetail.daftarUmkm.visibility = View.VISIBLE
+            bindingDetail.tambahBarang.visibility = View.GONE
+        }
+
+        bindingDetail.tambahBarang.setOnClickListener {
+            val intent = Intent(this, AddBarangActivity::class.java)
+            startActivity(intent)
+        }
 
         bindingDetail.showShirtStyle.setOnClickListener {
             bindingDetail.styleShirt.visibility = View.VISIBLE
@@ -83,6 +100,11 @@ class DetailUserActivity : AppCompatActivity() {
             bindingDetail.nameShoe.visibility = View.GONE
             bindingDetail.closeShoeStyle.visibility = View.GONE
             bindingDetail.showShoeStyle.visibility = View.VISIBLE
+        }
+
+        bindingDetail.daftarUmkm.setOnClickListener {
+            val intent = Intent(this, UmkmWelcome1::class.java)
+            startActivity(intent)
         }
 
         loadImage()
